@@ -1,9 +1,0 @@
-.gitignore
-.ipynb_checkpoints/
-inception_features_train.npz
-inception_features_test.npz
-model.best.hdf5
-tsne_features.npz
-*.ipynb
-*.html
-
