@@ -61,8 +61,7 @@ else:
         tmp.append(scipy.misc.imresize(x_train[i], \
                                                     (139, 139, 3)))
     big_x_train = (np.array(tmp)).astype('float32')
-#        big_x_train = np.array(scipy.misc.imresize(x_train[i], \
-#                                                    (139, 139, 3)).astype('float32')) 
+#
 #    big_x_train = np.array([scipy.misc.imresize(x_train[i], (139, 139, 3)) 
 #                            for i in range(0, len(x_train))]).astype('float32')
     inception_input_train = preprocess_input(big_x_train)
@@ -165,9 +164,14 @@ model.compile(loss='categorical_crossentropy', \
 
 checkpointer = ModelCheckpoint(filepath='model.best.hdf5', 
                                verbose=1, save_best_only=True)
-model.fit(features_train, y_train, batch_size=50, epochs=50,
-          validation_split=0.2, callbacks=[checkpointer],
-          verbose=2, shuffle=True)
+model.fit(features_train, \
+          y_train, \
+          batch_size=50, \
+          epochs=50,
+          validation_split=0.2, \
+          callbacks=[checkpointer],
+          verbose=2, \
+          shuffle=True)
 
 
 # In[ ]:
